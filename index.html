@@ -1,0 +1,135 @@
+<!--
+    projects on gitHub
+    1) inventory backend
+    2) inventory frontend
+    3) website about me
+        - interactive form that takes recruiter details
+        - highlights key skills and experience
+    	- provides easy check of recruiter requirements against skills and experience
+-->
+<!--
+    Name
+    Professional Summary
+    Currently open to ... roles located in ....
+    Please complete the following brief form to quickly cross-check my skills and experience against your requirements.
+    Form
+    -> name, company, contact details
+    -> skills and required experience selector
+    -> results
+    -> confirmation of details and form submission
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dav-eng-code - Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Syne&display=swap" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html"> dav-eng-code </a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="https://github.com/dav-eng-code/">GitHub</a></li>
+        </ul>
+    </nav>
+    <div class="divider"></div>
+
+    <!--The intro needs to be brief and fit next to the form; a longer bio can be given on the About page-->
+    <div class="intro-and-form">
+        <section id="intro">
+            <h2>Engineer with broad technical and managerial experience, shifting focus to development</h2>
+
+            <!--list technologies with projects??-->
+            <h3>Current technologies:</h3>
+            <ul class="technologies">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>Flask</li>
+                <li>Node***</li>
+                <li>Java</li>
+            </ul>
+
+
+            <h3>Courses and certificates:</h3>
+            <ul class="courses">
+                <li>
+                    Udacity Full Stack Web Developer Nanodegree -
+                    <a href="https://confirm.udacity.com/UGEQKKAE" target="_blank">
+                        <span class="emphasis">Certificate of Completion</span>
+                    </a>
+                </li>
+                <li>Frontend Masters - Beginner Learning Path -
+                    <a href="https://frontendmasters.com" target="_blank">frontendmasters.com</a>
+                </li>
+            </ul>
+
+        </section>
+        <!--I want the form next to the intro, or below it when screen width is restricted-->
+        <section id="form">
+            <h2>Quickly check <span class="emphasis">dav-eng-code</span>'s skills and experience against role
+                requirements:</h2>
+            <p class="subtext">The form will load as it is completed</p>
+            <!--<label>Name<input type="text" name="name"></label>-->
+            <label>Company<input type="text" placeholder="Company Name" name="company"></label>
+            <label>Looking for<input type="text" placeholder="Open Position" name="position"></label>
+            <h3>Role requirements:</h3>
+            <p class="subtext">What skills and experience would be useful for this role?</p>
+            <ul class="technologies row1">
+                <li><label>HTML<input type="checkbox" name="html" id="html"></label></li>
+                <li><label>CSS<input type="checkbox" name="css" id="css"></label></li>
+                <li><label>JavaScript<input type="checkbox" name="js" id="js"></label></li>
+                <li><label>React<input type="checkbox" name="react" id="react"></label></li>
+            </ul>
+        </section>
+    </div>
+    <div class="divider"></div>
+    <section id="projects">
+        <h2>Projects</h2>
+        <article>
+            <h3>Resume website</h3>
+            <p>Project for this website</p>
+        </article>
+        <article>
+            <h3>Timesheet in Java</h3>
+        </article>
+        <article>
+            <h3>Timesheet in Python</h3>
+        </article>
+        <article>
+            <h3>Calculator</h3>
+        </article>
+        <article>
+            <h3>Inventory API</h3>
+            <p>Udacity course final project</p>
+        </article>
+        <article>
+            <h3>Inventory frontend</h3>
+        </article>
+    </section>
+    <div class="divider"></div>
+    <section id="contact">
+        <p>
+            Open to software development roles located in Japan, around Tokyo or Tsukuba
+        </p>
+        <p>
+            Currenlty based in the UK - visa sponsorship required
+        </p>
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>
