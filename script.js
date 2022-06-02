@@ -1,3 +1,42 @@
+navList = document.createElement('ul')
+document.querySelector('nav').appendChild(navList)
+navListRefs = [
+    "index.html",
+    "index.html",
+    "index.html#projects",
+    "about.html",
+    "#contact",
+    "https://github.com/dav-eng-code/"
+]
+navListItems = [
+    'dav-eng-code',
+    'Home',
+    'Projects',
+    'About',
+    'Contact',
+    'GitHub'
+]
+for (i = 0; i < navListRefs.length; i++) {
+    listItem=document.createElement('li')
+    itemLink=document.createElement('a')
+    itemLink.setAttribute('href',navListRefs[i])
+    itemText=document.createTextNode(navListItems[i])
+    itemLink.appendChild(itemText)
+    navList.appendChild(listItem)
+    listItem.appendChild(itemLink)
+}
+
+contactPara1=document.createElement('p')
+contactPara2=document.createElement('p')
+contactText1=document.createTextNode('Open to software development roles located in Japan, around Tokyo or Tsukuba')
+contactText2=document.createTextNode('Currenlty based in the UK - visa sponsorship required')
+contactPara1.appendChild(contactText1)
+contactPara2.appendChild(contactText2)
+contactSection=document.querySelector('#contact')
+contactSection.appendChild(contactPara1)
+contactSection.appendChild(contactPara2)
+
+
 inputElements = document.querySelectorAll('input')
 inputElements.forEach(element => {
     element.addEventListener('change', function (event) {
@@ -99,6 +138,7 @@ function addRowToForm() {
             }
         }
         row.style.color = 'var(--theme-colour-background1)';
+        [...row.childNodes].map(a => a.childNodes[0].style.paddingTop = '10px');
         setTimeout(() => { row.classList.toggle('colourChange') }, 10)
     } else if (results != true) {
         results = createResultsSection()
