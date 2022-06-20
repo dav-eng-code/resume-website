@@ -26,6 +26,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex">
     <title>dav-eng-code - Resume</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,8 +36,8 @@
 
 <body>
     <nav>
-        <ul>
-            <!--<li><a href="index.html"> dav-eng-code </a></li>
+        <!--<ul>
+            <li><a href="index.html"> dav-eng-code </a></li>
             <li><a href="index.html">Home</a></li>
             <li><a href="index.html#projects">Projects</a></li>
             <li><a href="about.html">About</a></li>
@@ -50,18 +51,18 @@
     <div class="intro-and-form">
         <section id="intro">
             <h2>Engineer with broad technical and managerial experience, shifting focus to development</h2>
-
+            <div id="contact"></div>
             <!--list technologies with projects??-->
-            <h3>Current technologies:</h3>
+            <!--<h3>Current technologies:</h3>
             <ul class="technologies">
                 <li>HTML</li>
                 <li>CSS</li>
                 <li>JavaScript</li>
+                <li>React</li>
                 <li>Python</li>
                 <li>Flask</li>
-                <li>Node***</li>
                 <li>Java</li>
-            </ul>
+            </ul>-->
 
 
             <h3>Courses and certificates:</h3>
@@ -69,33 +70,40 @@
                 <li>
                     Udacity Full Stack Web Developer Nanodegree -
                     <a href="https://confirm.udacity.com/UGEQKKAE" target="_blank">
-                        <span class="emphasis">Certificate of Completion</span>
+                        Certificate of Completion
                     </a>
                 </li>
-                <li>Frontend Masters - Beginner Learning Path -
-                    <a href="https://frontendmasters.com" target="_blank">frontendmasters.com</a>
+                <li>PRINCE2:2017 (R) Foundation (inc. Examination) - 
+                    <a href="https://www.qa.com/training/courses/project-management/prince2/" target="_blank">qa.com/training/courses/project-management/prince2/</a>
+                    <br/>(certificate available on request)
                 </li>
+                <!--<li>Frontend Masters - Beginner Learning Path (in progress) -
+                    <a href="https://frontendmasters.com" target="_blank">frontendmasters.com</a>
+                </li>-->
             </ul>
 
         </section>
         <!--I want the form next to the intro, or below it when screen width is restricted-->
-        <section id="form">
-            <h2>Quickly check <span class="emphasis">dav-eng-code</span>'s skills and experience against role
-                requirements:</h2>
-            <p class="subtext">The form will load as it is completed</p>
-            <!--<label>Name<input type="text" name="name"></label>-->
-            <label>Company<input type="text" placeholder="Company Name" name="company"></label>
-            <label>Looking for<input type="text" placeholder="Open Position" name="position"></label>
-            <label>Location<input type="text" placeholder="Location" name="location"></label>
-            <h3>Role requirements:</h3>
-            <p class="subtext">What skills and experience would be useful for this role?</p>
-            <ul class="technologies row1">
-                <li><label>HTML<input type="checkbox" name="html" id="html"></label></li>
-                <li><label>CSS<input type="checkbox" name="css" id="css"></label></li>
-                <li><label>JavaScript<input type="checkbox" name="js" id="js"></label></li>
-                <li><label>React<input type="checkbox" name="react" id="react"></label></li>
-            </ul>
-        </section>
+        <form action="https://formspree.io/f/mwkyjkde" method="POST">
+            <section id="form">
+                <h2>Quickly check <span class="emphasis my-name">dav-eng-code</span>'s skills and experience against role
+                    requirements:</h2>
+                <p class="subtext">The form will load as it is completed</p>
+                <!--<label>Name<input type="text" name="name"></label>-->
+                <label>Company<input type="text" placeholder="Company Name" name="company"></label>
+                <label>Looking for<input type="text" placeholder="Open Position" name="position"></label>
+                <label>Location<input type="text" placeholder="Location" name="location"></label>
+                <h3>Role requirements:</h3>
+                <p class="subtext">What skills and experience would be useful for this role?</p>
+                <ul class="technologies row1">
+                    <li><label>HTML<input type="checkbox" name="html" id="html"></label></li>
+                    <li><label>CSS<input type="checkbox" name="css" id="css"></label></li>
+                    <li><label>JavaScript<input type="checkbox" name="js" id="js"></label></li>
+                    <li><label>React<input type="checkbox" name="react" id="react"></label></li>
+                </ul>
+            </section>
+            <!--<button type="submit">Submit</button>-->
+        </form>
     </div>
     <div class="divider"></div>
     <section id="projects">
@@ -103,8 +111,14 @@
         <article>
             <h3>Resume website</h3>
             <p>Project for this website</p>
+            <ul class="technologies">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+            </ul>
+            <a href="https://github.com/dav-eng-code/resume-website" target="_blank">View on GitHub</a>
         </article>
-        <article>
+        <!--<article>
             <h3>Timesheet in Java</h3>
         </article>
         <article>
@@ -112,17 +126,33 @@
         </article>
         <article>
             <h3>Calculator</h3>
-        </article>
+        </article>-->
         <article>
             <h3>Inventory API</h3>
             <p>Udacity course final project</p>
+            <ul class="technologies">
+                <li>Python</li>
+                <li>Flask</li>
+                <li>PostgreSQL</li>
+            </ul>
+            <a href="https://github.com/dav-eng-code/inventoryAPI" target="_blank">View on GitHub</a>
         </article>
         <article>
             <h3>Inventory frontend</h3>
+            <p>Browser-based interface to the Inventory API backend</p>
+            <ul class="technologies">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>React</li>
+            </ul>
+            <a href="https://github.com/dav-eng-code/inventorySite" target="_blank">View on GitHub</a><br/>
+            <a href="tbc" target="_blank">Hosted on Heroku  TBC</a>
+            <!--<img src="InventoryApp.png" alt="Image of Inventory Frontend" width="600px">-->
         </article>
     </section>
     <div class="divider"></div>
-    <section id="contact"> </section>
+    <section id="footer"><a href="#top">Back to top of page</a></section>
     <script src="script.js"></script>
 </body>
 

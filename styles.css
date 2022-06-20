@@ -117,34 +117,39 @@ nav a:hover {
         flex-direction: row;
         align-items: flex-start;
     }
+    #intro,#form{
+        width: 50%;
+    }
 }
 
 #intro,
 #form {
     margin: 0rem;
-    width: 50%;
-    border: 1px solid var(--theme-colour-background2);
+    width: 90%;
 }
 
-.intro-and-form h1 {
+#intro, #form,#projects
+{border: 1px solid var(--theme-colour-background2);}
+
+/*.intro-and-form*/ h1 {
     font-family: var(--serif);
     font-size: calc(var(--font-size)*2.5);
     color: var(--theme-colour-headings);
 }
 
-.intro-and-form h2 {
+/*.intro-and-form*/ h2 {
     padding: 1rem 0 0.5rem 0;
     color: var(--theme-colour-text);
     font-size: calc(var(--font-size)*1.2);
 }
 
-.intro-and-form h3 {
+/*.intro-and-form*/ h3 {
     padding: 2rem 0 1rem 0;
     color: var(--theme-colour-emphasis);
     font-size: calc(var(--font-size)*1.2);
 }
 
-.intro-and-form ul {
+/*.intro-and-form*/ ul {
     display: flex;
     margin: 0;
     flex-wrap: wrap;
@@ -167,7 +172,7 @@ nav a:hover {
     padding-bottom: 1rem;
 }
 
-.intro-and-form li {
+/*.intro-and-form*/ li {
     list-style: none;
     margin: 0 0.5rem;
     padding: 0.3rem;
@@ -177,15 +182,16 @@ nav a:hover {
     border: solid var(--theme-colour-headings);
     border-width: 3px 0 0 0.5px;
     border-top-left-radius: 5px;
+    margin-bottom: 1.5rem;
 }
 
-#intro a {
+#intro a, #projects a, #footer a {
     color: var(--theme-colour-headings);
     /*background-color: var(--theme-colour-background1);
     padding: 20px;*/
 }
 
-#intro a:hover {
+#intro a:hover, #projects a:hover {
     color: var(--theme-colour-emphasis);
 }
 
@@ -224,14 +230,16 @@ nav a:hover {
 #form li {
     border: none;
     padding: 0;
+    margin: 0 1rem;
 }
 
 /*#form li input {
     width: auto;
 }*/
 
-.technologies label {
+#form .technologies label {
     transition: color 3s, padding 3s;
+    cursor: pointer;
 }
 
 #form .colourChange label {
@@ -239,8 +247,40 @@ nav a:hover {
     color: white;
 }
 
+#form .feedback {
+    width: 100%;
+    resize: none;
+    height: 5rem;
+}
+
+#form button {
+    background-color: var(--theme-colour-background1);
+    color: var(--theme-colour-headings);
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    margin: 1rem;
+    border: 1px solid var(--theme-colour-background2);
+
+}
+#form button:hover{
+    cursor: pointer;
+    color: var(--theme-colour-emphasis);
+}
+
+#results_text{
+    color: var(--theme-colour-emphasis);
+}
 
 #about,
-#contact {
+#form_success {
     width: 50%;
+}
+
+
+#contact {
+    width: 100%;
+}
+
+#footer {
+    text-align: center;
 }

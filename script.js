@@ -1,40 +1,74 @@
+myName=''
+if (window.location.hash){
+    hash=window.location.hash
+    if (/v.*r/.test(hash)){
+        myName=hash.replace('#','').replace('dB','d B')
+        myName=myName.replace('v','avi')
+        myName=myName.substr(0,7)+'u'+myName.substr(7,8)
+        myName=myName.concat('ani')
+    }
+    else {myName='dav-eng-code';hash=''}
+}else {myName='dav-eng-code';hash=''}
+console.log(myName)
+
+if (document.querySelector('.my-name')){
+console.log(document.querySelector('.my-name').textContent)
+document.querySelector('.my-name').textContent=myName}
+
 navList = document.createElement('ul')
 document.querySelector('nav').appendChild(navList)
 navListRefs = [
-    "index.html",
-    "index.html",
-    "index.html#projects",
-    "about.html",
-    "#contact",
+    "index.html"+hash,
+    "index.html"+hash,
+    //"index.html#projects",
+    "about.html"+hash,
+    //"#contact",
     "https://github.com/dav-eng-code/"
 ]
+
 navListItems = [
-    'dav-eng-code',
+    myName,
     'Home',
-    'Projects',
+    //'Projects',
     'About',
-    'Contact',
+    //'Contact',
     'GitHub'
 ]
+if(hash!=''){
+    navListRefs.push('https://linkedin.com/in/'+myName.replace(' ',''))
+    navListItems.push('Linkedin')
+    console.log(navListRefs)
+    console.log(navListItems)
+    linksN=2
+} else {
+    linksN=1
+}
+
 for (i = 0; i < navListRefs.length; i++) {
     listItem=document.createElement('li')
     itemLink=document.createElement('a')
     itemLink.setAttribute('href',navListRefs[i])
+    if(i>=navListRefs.length-linksN){
+        itemLink.setAttribute('target','_blank')
+    }
     itemText=document.createTextNode(navListItems[i])
     itemLink.appendChild(itemText)
     navList.appendChild(listItem)
     listItem.appendChild(itemLink)
 }
 
-contactPara1=document.createElement('p')
-contactPara2=document.createElement('p')
-contactText1=document.createTextNode('Open to software development roles located in Japan, around Tokyo or Tsukuba')
-contactText2=document.createTextNode('Currenlty based in the UK - visa sponsorship required')
-contactPara1.appendChild(contactText1)
-contactPara2.appendChild(contactText2)
-contactSection=document.querySelector('#contact')
-contactSection.appendChild(contactPara1)
-contactSection.appendChild(contactPara2)
+if (hash!=''){
+    contactPara1=document.createElement('p')
+    contactPara2=document.createElement('p')
+    contactText1=document.createTextNode('Open to software development roles located in Japan, around Tokyo or Tsukuba')
+    contactText2=document.createTextNode('Currently based in the UK (visa sponsorship required)')
+    contactPara1.appendChild(contactText1)
+    contactPara2.appendChild(contactText2)
+    contactSection=document.querySelector('#contact')
+    contactSection.appendChild(contactPara1)
+    contactSection.appendChild(contactPara2)
+}
+
 
 
 inputElements = document.querySelectorAll('input')
@@ -67,27 +101,27 @@ let allSkills = {
     'HTML': true,
     'CSS': true,
     'JavaScript': true,
-    'React': false,
-    'Python': true,
-    'Java': true,
+    'React': true,
+    'TypeScript': false,
     'Node.js': false,
     'Next.js': false,
     'Vue.js': false,
     'Angular': false,
     'Rx.js': false,
-    'Website Accessibility': false,
-    'TypeScript': false,
-    'project management': true,
-    'written communication': true,
-    'team leadership': true,
-    'over 8 years in engineering': true,
-    'Windows': true,
-    'Linux': true,
+    'Python': true,
     'Flask': true,
     'SQLAlchemy ': true,
     'AWS ': true,
     'PostgreSQL ': true,
-    'familiarity with ISO9001': true
+    'Java': true,
+    //'Website Accessibility': false,
+    'Project Management in Technical Environment': true,
+    'Excellent Written Communication': true,
+    'Team Leadership': true,
+    'Over 8 Years in Engineering': true,
+    'Windows': true,
+    'Linux (Fedora)': true,
+    'Familiarity with ISO9001': true
 }
 
 skillsList = Object.keys(allSkills);
@@ -115,7 +149,8 @@ skillCount = 4
 formSection = document.querySelector('#form')
 mouseoverAddRow = true
 
-document.querySelector('.row1').addEventListener('mouseover', event => {
+if (document.querySelectorAll('.row1').length!=0)
+{document.querySelector('.row1').addEventListener('mouseover', event => {
     if (!document.getElementsByName('company')[0].value == '') {
         setTimeout(() => {
             if (mouseoverAddRow) { addRowToForm() }
@@ -123,7 +158,7 @@ document.querySelector('.row1').addEventListener('mouseover', event => {
         mouseoverAddRow = false
     }
 
-})
+})}
 
 function addRowToForm() {
     if (skillCount < skillsList.length) {
@@ -180,15 +215,18 @@ skillsSelector = function skillsSelector(event) {
 
     console.log('event firing', n)
     n++
-    if (event.target.checked && !selectedSkills.includes(event.target.name)) {
-        selectedSkills.push(event.target.name)
+    if (event.target.checked && !selectedSkills.includes(event.target.parentNode.textContent)) {
+        selectedSkills.push(event.target.parentNode.textContent)
+        console.log('***********')
+        console.log(event.target)
+        console.log(event.target.parentNode.textContent)
         console.log(selectedSkills)
-        updateResults('add', event.target.name) //if selected skill is true, then change the corresponding item in the results resultsSection
-    } else if (selectedSkills.includes(event.target.name)) {
+        updateResults('add', event.target.parentNode.textContent) //if selected skill is true, then change the corresponding item in the results resultsSection
+    } else if (selectedSkills.includes(event.target.parentNode.textContent)) {
         console.log('here')
-        selectedSkills = selectedSkills.filter(item => item != event.target.name)
+        selectedSkills = selectedSkills.filter(item => item != event.target.parentNode.textContent)
         console.log(selectedSkills)
-        updateResults('remove', event.target.name)
+        updateResults('remove', event.target.parentNode.textContent)
     }
 }
 
@@ -219,10 +257,33 @@ createResultsSection = function createResultsSection() {
         resultsStatementText = document.createTextNode(resultsScore)
         resultsStatement.setAttribute('id', 'results_text')
         resultsStatement.appendChild(resultsStatementText)
+        resultsStatementInput=document.createElement('input')
+        resultsStatementInput.setAttribute('type','hidden')
+        resultsStatementInput.setAttribute('name','results_text')
+        resultsStatementInput.setAttribute('value',resultsScore)
         resultsSection.appendChild(resultsStatement)
+        resultsSection.appendChild(resultsStatementInput)
 
-        console.log('adding results statement')
+        console.log('added results statement')
         console.log('resultsSection:', resultsSection)
+
+        feedbackHeading=document.createElement('p')
+        feedbackHeading.appendChild(document.createTextNode('Please confirm if you would be interested in receiving an application, or otherwise please provide feedback. Please mention which skills and experience are of most interest. Thank you.'))
+        resultsSection.appendChild(feedbackHeading)
+        feedbackInput=document.createElement('textarea')
+        feedbackInput.setAttribute('class','feedback')
+        feedbackInput.setAttribute('name','feedback_text')
+        resultsSection.appendChild(feedbackInput)
+
+        console.log('added feedback area')
+
+        submitButton=document.createElement('button')
+        submitButton.setAttribute('type','submit')
+        submitButtonText=document.createTextNode('Submit')
+        submitButton.appendChild(submitButtonText)
+        resultsSection.appendChild(submitButton)
+
+        console.log('added submit button')
     } else if (results) {
         document.getElementById('results_text').textContent = resultsScore;
     }
