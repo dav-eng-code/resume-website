@@ -112,23 +112,27 @@ nav a:hover {
 
 }
 
+#intro,
+#form,
+#about,
+#form_success {
+    width: 90%;
+}
+
 @media (min-width:1200px) {
     .intro-and-form {
         flex-direction: row;
         align-items: flex-start;
     }
-    #intro,#form{
+    #about,
+    #form_success {
         width: 50%;
     }
 }
 
-#intro,
-#form {
-    margin: 0rem;
-    width: 90%;
-}
 
-#intro, #form,#projects
+
+#intro, #form
 {border: 1px solid var(--theme-colour-background2);}
 
 /*.intro-and-form*/ h1 {
@@ -271,9 +275,13 @@ nav a:hover {
     color: var(--theme-colour-emphasis);
 }
 
-#about,
-#form_success {
-    width: 50%;
+#projects p {
+    margin-top: 0;
+    font-style: italic;
+}
+
+#projects h3{
+    padding-bottom: 0;
 }
 
 

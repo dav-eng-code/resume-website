@@ -1,3 +1,6 @@
+/*
+ *Check for name
+ */
 myName=''
 if (window.location.hash){
     hash=window.location.hash
@@ -15,6 +18,9 @@ if (document.querySelector('.my-name')){
 console.log(document.querySelector('.my-name').textContent)
 document.querySelector('.my-name').textContent=myName}
 
+/*
+ *Navigation Bar
+ */
 navList = document.createElement('ul')
 document.querySelector('nav').appendChild(navList)
 navListRefs = [
@@ -57,20 +63,24 @@ for (i = 0; i < navListRefs.length; i++) {
     listItem.appendChild(itemLink)
 }
 
+/*
+ * Open to work statement
+ */
 if (hash!=''){
     contactPara1=document.createElement('p')
     contactPara2=document.createElement('p')
-    contactText1=document.createTextNode('Open to software development roles located in Japan, around Tokyo or Tsukuba')
+    contactText1=document.createTextNode('Open to software development roles or other relevant opportunities located in Japan, around Tokyo or Tsukuba')
     contactText2=document.createTextNode('Currently based in the UK (visa sponsorship required)')
     contactPara1.appendChild(contactText1)
     contactPara2.appendChild(contactText2)
-    contactSection=document.querySelector('#contact')
+    contactSection=document.querySelector('#role_text')
     contactSection.appendChild(contactPara1)
     contactSection.appendChild(contactPara2)
 }
 
-
-
+/*
+ * Form input formatting
+ */
 inputElements = document.querySelectorAll('input')
 inputElements.forEach(element => {
     element.addEventListener('change', function (event) {
@@ -81,13 +91,6 @@ inputElements.forEach(element => {
             event.target.style.backgroundColor = 'white';
             event.target.style.borderColor = 'red';
         }
-
-
-        /*alert('Aha');
-        document.querySelector('#form').style.backgroundColor='red'
-        newButton = document.createElement('button')
-        newButton.innerText='yes';
-        document.querySelector('#form').appendChild(newButton)*/
     })
 })
 
@@ -95,7 +98,9 @@ document.querySelectorAll('.technologies input').forEach(item => {
     item.checked = false;
 })
 
-/*define skills items to add*/
+/*
+ *define skills items to add
+ */
 
 let allSkills = {
     'HTML': true,
@@ -114,7 +119,7 @@ let allSkills = {
     'AWS ': true,
     'PostgreSQL ': true,
     'Java': true,
-    //'Website Accessibility': false,
+    'Website Accessibility': false,
     'Project Management in Technical Environment': true,
     'Excellent Written Communication': true,
     'Team Leadership': true,
@@ -130,6 +135,9 @@ console.log(skillsList)
 /**need importance selector with high, medium, low 
  * that appears when the checkbox is ticked */
 
+/*
+ * create skills checkboxes
+ */
 createSkillsListItem = function createSkillsListItem(skill) {
     listItem = document.createElement('li')
     labelItem = document.createElement('label')
@@ -151,7 +159,7 @@ mouseoverAddRow = true
 
 if (document.querySelectorAll('.row1').length!=0)
 {document.querySelector('.row1').addEventListener('mouseover', event => {
-    if (!document.getElementsByName('company')[0].value == '') {
+    if (document.getElementsByName('company')[0].value != '') {
         setTimeout(() => {
             if (mouseoverAddRow) { addRowToForm() }
         }, 2000)
