@@ -69,8 +69,8 @@ for (i = 0; i < navListRefs.length; i++) {
 if (hash!=''){
     contactPara1=document.createElement('p')
     contactPara2=document.createElement('p')
-    contactText1=document.createTextNode('Open to software development roles or other relevant opportunities located in Japan, around Tokyo or Tsukuba')
-    contactText2=document.createTextNode('Currently based in the UK (visa sponsorship required)')
+    contactText1=document.createTextNode('Open to relevant opportunities in Japan, around Tokyo or Tsukuba')
+    contactText2=document.createTextNode('Currently based in the UK')
     contactPara1.appendChild(contactText1)
     contactPara2.appendChild(contactText2)
     contactSection=document.querySelector('#role_text')
@@ -106,26 +106,25 @@ let allSkills = {
     'HTML': true,
     'CSS': true,
     'JavaScript': true,
+    'Project Management in Technical Environment': true,
+    'Excellent Written Communication': true,
+    'Windows': true,
+    'Linux (Fedora)': true,
     'React': true,
     'TypeScript': false,
-    'Node.js': false,
-    'Next.js': false,
+    /*'Node.js': false,
+    'Next.js': false,*/
     'Vue.js': false,
     'Angular': false,
-    'Rx.js': false,
+    /*'Rx.js': false,*/
     'Python': true,
     'Flask': true,
     'SQLAlchemy ': true,
     'AWS ': true,
     'PostgreSQL ': true,
     'Java': true,
-    'Website Accessibility': false,
-    'Project Management in Technical Environment': true,
-    'Excellent Written Communication': true,
     'Team Leadership': true,
-    'Over 8 Years in Engineering': true,
-    'Windows': true,
-    'Linux (Fedora)': true,
+    'Over 8 Years experience in Engineering': true,
     'Familiarity with ISO9001': true
 }
 
@@ -157,7 +156,7 @@ skillCount = 4
 formSection = document.querySelector('#form')
 mouseoverAddRow = true
 
-if (document.querySelectorAll('.row1').length!=0)
+//if (document.querySelectorAll('.row1').length!=0)
 {document.querySelector('.row1').addEventListener('mouseover', event => {
     if (document.getElementsByName('company')[0].value != '') {
         setTimeout(() => {
